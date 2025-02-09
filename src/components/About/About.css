@@ -1,0 +1,151 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* About Section Styles */
+.about-section {
+  position: flex;
+  padding: 12rem 20rem;
+  background-color: #D2DAFF;
+  color: #1a1a1a;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-content {
+  flex: 1;
+  max-width: 800px;
+  text-align: left;
+}
+
+.about-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  position: relative;
+  color: #1a1a1a;
+}
+
+.about-underline {
+  width: 20px;
+  height: 4px;
+  background-color: #19376D;
+  border: none;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #03346E;
+}
+
+.contact-link {
+  color: #576CBC;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
+.about-image-placeholder {
+  flex: 1;
+  max-width: 420px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+/* For Tablets */
+@media (max-width: 1024px) {
+  .about-container {
+    gap: 2rem;
+  }
+
+  .about-heading {
+    font-size: 2.2rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 1rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-heading {
+    font-size: 2rem;
+  }
+
+  .about-underline {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+
+  .about-image-placeholder {
+    max-width: 100%;
+  }
+}
+
+/* For Small Mobile Devices */
+@media (max-width: 480px) {
+  .about-section {
+    padding: 3rem 1rem;
+  }
+
+  .about-heading {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+}

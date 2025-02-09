@@ -1,0 +1,108 @@
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    text-align: center;
+    background: #0d1117;
+    color: #ffffff;
+  }
+  
+  .intro-content {
+    max-width: 800px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  h1 .highlight {
+    color: #A084E8;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  .typing-effect {
+    display: inline-block;
+    border-right: 2px solid #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+  }
+  
+  /* Button Styles */
+  .intro-buttons {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .primary-btn {
+    background: #58a6ff;
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .primary-btn:hover {
+    background: #1f6feb;
+  }
+  
+  .secondary-btn {
+    background: transparent;
+    border: 2px solid #58a6ff;
+    color: #58a6ff;
+  }
+  
+  .secondary-btn:hover {
+    background: #58a6ff;
+    color: white;
+  }
+  
+  /* Animations */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

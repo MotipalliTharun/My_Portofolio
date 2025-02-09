@@ -1,0 +1,179 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Skills Section Styles */
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  min-height: 100vh;
+  text-align: left;
+  background-color: #000B58;
+  padding: 12rem 20rem;
+}
+
+.skills-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  position: relative;
+  color: #9BEC00;
+}
+
+.skills-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #F3FF90;
+  border: none;
+  position: absolute;
+  left:5%;
+  transform: translateX(-50%);
+  bottom: -10px;
+}
+
+.skills-description {
+  font-size: 1.1rem;
+  color: #F3FF90;
+  margin: 0 auto 2rem;
+  text-align: left;
+  justify-content: left;
+  line-height: 1.6;
+  max-width: 800px;
+  transform: translateX(-25%);
+  left:5%;
+}
+
+.skills-scroll-container {
+  width: 90%;
+  left:5%;
+  max-width: 1200px;
+  padding: 4rem 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: left;
+  overflow: hidden;
+  position: relative;
+  transform: translateX(-10%);
+}
+
+.skills-scroll {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+  margin: 0 1rem;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.skill-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-logo {
+  transform: scale(1.1);
+}
+
+.skill-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Infinite Scroll Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-heading {
+    font-size: 2.2rem;
+  }
+
+  .skills-description {
+    font-size: 1rem;
+  }
+
+  .skill-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .skill-name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 4rem 1rem;
+  }
+
+  .skills-heading {
+    font-size: 2rem;
+  }
+
+  .skills-description {
+    font-size: 0.95rem;
+  }
+
+  .skill-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .skill-name {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 3rem 1rem;
+  }
+
+  .skills-heading {
+    font-size: 1.8rem;
+  }
+
+  .skills-description {
+    font-size: 0.9rem;
+  }
+
+  .skill-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .skill-name {
+    font-size: 0.75rem;
+  }
+}

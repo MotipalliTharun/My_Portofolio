@@ -1,0 +1,99 @@
+.projects-container {
+  max-width: 100%;
+  padding: 40px;
+  text-align: center;
+  color: #ffffff;
+  background: #0d1117;
+  min-height: 100vh;
+}
+
+.projects-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.projects-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.projects-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  max-width: 80%;
+}
+
+.projects-scroll::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.projects-card {
+  flex: 0 0 300px;
+  background: #161b22;
+  width: 300px;
+  height: 450px;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: left;
+}
+
+.projects-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(88, 166, 255, 0.2);
+}
+
+.project-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.project-description {
+  font-size: 1rem;
+  color: #c9d1d9;
+  margin-bottom: 10px;
+}
+
+.project-link {
+  font-size: 1rem;
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Scroll buttons */
+.scroll-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #58a6ff;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
