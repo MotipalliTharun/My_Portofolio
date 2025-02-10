@@ -31,7 +31,7 @@ const blogPosts: BlogPost[] = [
 
 const Blog: React.FC = () => {
   return (
-    <section className="blog-container">
+    <section id='blog' className="blog-container">
       <h2 className="blog-title">Recent Blog Posts</h2>
       <div className="blog-content">
         {blogPosts.map((post, index) => (

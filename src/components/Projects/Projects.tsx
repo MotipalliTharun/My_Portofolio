@@ -43,7 +43,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section className="projects-container">
+    <section id="projects" className="projects-container">
       <h2 className="projects-title">My Projects</h2>
       <div className="projects-wrapper">
         <button className="scroll-btn left" onClick={scrollLeft}>‹</button>
