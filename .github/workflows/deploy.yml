@@ -1,37 +1,28 @@
-name: Deploy React App to Vercel
+name: Deploy to Vercel
 
 on:
   push:
     branches:
-      - main  # Change to your main branch
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3  # This ensures your repo is available
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v18
         with:
-          node-version: 18  # Ensure the same version as your project
+          node-version: 18
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Build Project
-        run: npm run build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          github-comment: true
+          github-deployment: false
