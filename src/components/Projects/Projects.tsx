@@ -18,7 +18,7 @@ const Projects: React.FC = () => {
         const data = await response.json();
         const projectList = data.slice(0, 5).map((repo: any) => ({
           name: repo.name,
-          description: repo.description || "No description available.",
+          description: repo.description || "No description  is available.",
           html_url: repo.html_url,
         }));
         setProjects(projectList);
