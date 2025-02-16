@@ -7,50 +7,50 @@
 
 /* About Section Styles */
 .about-section {
-  position: flex;
-  padding: 12rem 20rem;
+  display: flex;
+  padding: 10rem 15rem;
   background-color: #D2DAFF;
   color: #1a1a1a;
   overflow: hidden;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-container {
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .about-content {
   flex: 1;
-  max-width: 800px;
-  text-align: left;
 }
 
 .about-heading {
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   position: relative;
   color: #1a1a1a;
 }
 
 .about-underline {
-  width: 20px;
+  width: 25px;
   height: 4px;
   background-color: #19376D;
   border: none;
   position: absolute;
   left: 0;
-  bottom: -10px;
+  bottom: -8px;
 }
 
 .about-text {
   font-size: 1.1rem;
-  line-height: 1.8;
+  line-height: 1.7;
   color: #333;
 }
 
@@ -74,7 +74,7 @@
 
 .about-image-placeholder {
   flex: 1;
-  max-width: 420px;
+  max-width: 400px;
   height: auto;
   display: flex;
   align-items: center;
@@ -93,8 +93,14 @@
 /* Responsive Design */
 /* For Tablets */
 @media (max-width: 1024px) {
+  .about-section {
+    padding: 6rem 3rem;
+  }
+
   .about-container {
     gap: 2rem;
+    flex-direction: column;
+    text-align: center;
   }
 
   .about-heading {
@@ -104,41 +110,56 @@
   .about-text {
     font-size: 1rem;
   }
-}
-
-/* For Mobile Devices */
-@media (max-width: 768px) {
-  .about-section {
-    padding: 4rem 1rem;
-  }
-
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-heading {
-    font-size: 2rem;
-  }
 
   .about-underline {
     left: 50%;
     transform: translateX(-50%);
   }
 
+  .about-image-placeholder {
+    max-width: 80%;
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 2rem;
+  }
+
+  .about-container {
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-content {
+    max-width: 100%;
+  }
+
+  .about-heading {
+    font-size: 2rem;
+  }
+
   .about-text {
     font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .about-underline {
+    width: 30px;
   }
 
   .about-image-placeholder {
-    max-width: 100%;
+    max-width: 90%;
   }
 }
 
 /* For Small Mobile Devices */
 @media (max-width: 480px) {
   .about-section {
-    padding: 3rem 1rem;
+    padding: 3rem 1.5rem;
   }
 
   .about-heading {
@@ -147,5 +168,13 @@
 
   .about-text {
     font-size: 0.9rem;
+  }
+
+  .about-underline {
+    width: 20px;
+  }
+
+  .about-image-placeholder {
+    max-width: 100%;
   }
 }

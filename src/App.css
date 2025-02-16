@@ -1,4 +1,201 @@
-/* Add this to your global styles or main content container */
-.main-content {
-  padding-top: 20px; /* Adjust based on the height of your header */
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Intro Section */
+.intro {
+  padding: 2rem 0;
+  text-align: center;
+  background-color: #fff;
+}
+
+/* About Section */
+.about {
+  padding: 2rem 0;
+  background-color: #f4f4f4;
+}
+
+/* Skills Section */
+.skills {
+  padding: 2rem 0;
+  background-color: #fff;
+}
+
+/* Blog Section */
+.blog {
+  padding: 2rem 0;
+  background-color: #f4f4f4;
+}
+
+/* Projects Section */
+.projects {
+  padding: 2rem 0;
+  background-color: #fff;
+}
+
+/* Contact Section */
+.contact {
+  padding: 2rem 0;
+  background-color: #f4f4f4;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+/* Responsive Styles */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro, .about, .skills, .blog, .projects, .contact {
+    padding: 1.5rem 0;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro, .about, .skills, .blog, .projects, .contact {
+    padding: 1rem 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust buttons and links for better touch targets */
+  a, button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Laptops and Desktops (1024px and above) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  header .container {
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  .intro, .about, .skills, .blog, .projects, .contact {
+    padding: 3rem 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
 }

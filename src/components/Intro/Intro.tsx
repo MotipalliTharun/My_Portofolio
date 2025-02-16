@@ -1,34 +1,70 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import * as THREE from "three";
 import "./Intro.css";
 
 const Intro: React.FC = () => {
-  const particlesInit = async (main: any) => {
-    await loadFull(main);
-  };
+  const mountRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!mountRef.current) return;
+
+    // Scene, Camera, Renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    mountRef.current.appendChild(renderer.domElement);
+
+    // Create particles
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = window.innerWidth < 768 ? 200 : 500; // Fewer particles for mobile
+    const positions = new Float32Array(particlesCount * 3);
+
+    for (let i = 0; i < particlesCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 8;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 8;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
+    }
+    particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: window.innerWidth < 768 ? 0.03 : 0.05,
+      color: 0xffffff,
+      opacity: 0.8,
+      transparent: true,
+    });
+
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+
+    camera.position.z = 5;
+    const animate = () => {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    const handleResize = () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <section id="intro" className="intro-container">
-      {/* Background Animation */}
-      <Particles
-        id="particles"
-        init={particlesInit}
-        options={{
-          particles: {
-            number: { value: 50 },
-            color: { value: "#ffffff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.7, random: true },
-            size: { value: 2, random: true },
-            move: { speed: 1, direction: "none", outMode: "out" },
-          },
-          interactivity: {
-            events: { onHover: { enable: true, mode: "repulse" } },
-          },
-        }}
-      />
+      <div ref={mountRef} className="three-background" />
 
       <motion.div
         className="intro-content"
@@ -36,45 +72,17 @@ const Intro: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
       >
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
+        <motion.h1>
           Hi, I'm <span className="highlight">Tharun Motipalli</span>
         </motion.h1>
-
-        <motion.h2
-          className="typing-effect"
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        >
-          Full Stack Developer & DevOps Engineer
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-        >
-          Passionate about building scalable applications, optimizing cloud
-          infrastructure, and automating workflows to enhance development
-          efficiency and reliability.
+        <motion.h2 className="typing-effect">Full Stack Developer & DevOps Engineer</motion.h2>
+        <motion.p>
+          Passionate about building scalable applications, optimizing cloud infrastructure, and automating workflows.
         </motion.p>
 
-        <motion.div
-          className="intro-buttons"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-        >
-          <a href="#projects" className="btn primary-btn">
-            View Projects
-          </a>
-          <a href="#contact" className="btn secondary-btn">
-            Contact Me
-          </a>
+        <motion.div className="intro-buttons">
+          <a href="#projects" className="btn primary-btn">View Projects</a>
+          <a href="#contact" className="btn secondary-btn">Contact Me</a>
         </motion.div>
       </motion.div>
     </section>

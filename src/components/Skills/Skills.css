@@ -9,19 +9,17 @@
 .skills-section {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  text-align: left;
+  text-align: center;
   background-color: #000B58;
-  padding: 12rem 20rem;
 }
 
 .skills-heading {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  position: relative;
   color: #9BEC00;
 }
 
@@ -30,9 +28,6 @@
   height: 4px;
   background-color: #F3FF90;
   border: none;
-  position: absolute;
-  left:5%;
-  transform: translateX(-50%);
   bottom: -10px;
 }
 
@@ -40,37 +35,31 @@
   font-size: 1.1rem;
   color: #F3FF90;
   margin: 0 auto 2rem;
-  text-align: left;
-  justify-content: left;
+  text-align: center;
+  justify-content: center;
   line-height: 1.6;
   max-width: 800px;
-  transform: translateX(-25%);
-  left:5%;
 }
 
 .skills-scroll-container {
   width: 90%;
-  left:5%;
-  max-width: 1200px;
+  max-width: 400px;
   padding: 4rem 0;
   margin: 0 auto;
-  display: flex;
-  justify-content: left;
+  justify-content: center;
   overflow: hidden;
-  position: relative;
-  transform: translateX(-10%);
 }
 
 .skills-scroll {
   display: flex;
-  animation: scroll 20s linear infinite;
+  animation: scroll 5s linear infinite;
 }
 
 .skill-card {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
   padding: 1.5rem;
   background-color: #ffffff;
   border-radius: 10px;
@@ -130,6 +119,7 @@
   .skill-name {
     font-size: 0.9rem;
   }
+  
 }
 
 @media (max-width: 768px) {
