@@ -1,71 +1,57 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import * as THREE from "three";
 import "./Intro.css";
 
+const jobTitles = [
+  "Java Full Stack Developer",
+  "Cloud-Native Application Developer",
+  "CI/CD & Kubernetes Specialist",
+  "Microservices Backend Engineer"
+];
+
+const TYPING_DELAY = 100; // ms between each character
+const PAUSE_DELAY = 2000; // pause before switching to next title
+
 const Intro: React.FC = () => {
-  const mountRef = useRef<HTMLDivElement>(null);
+  const [displayedText, setDisplayedText] = useState("");
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    if (!mountRef.current) return;
+    const currentTitle = jobTitles[titleIndex];
+    let timeout: NodeJS.Timeout;
 
-    // Scene, Camera, Renderer
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    mountRef.current.appendChild(renderer.domElement);
-
-    // Create particles
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = window.innerWidth < 768 ? 200 : 500; // Fewer particles for mobile
-    const positions = new Float32Array(particlesCount * 3);
-
-    for (let i = 0; i < particlesCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 8;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 8;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
+    if (!isDeleting && charIndex <= currentTitle.length) {
+      timeout = setTimeout(() => {
+        setDisplayedText(currentTitle.substring(0, charIndex));
+        setCharIndex(charIndex + 1);
+      }, TYPING_DELAY);
+    } else if (isDeleting && charIndex > 0) {
+      timeout = setTimeout(() => {
+        setDisplayedText(currentTitle.substring(0, charIndex));
+        setCharIndex(charIndex - 1);
+      }, TYPING_DELAY / 2);
+    } else {
+      timeout = setTimeout(() => {
+        setIsDeleting(!isDeleting);
+        if (!isDeleting) {
+          // Done typing → wait
+          setTimeout(() => setIsDeleting(true), PAUSE_DELAY);
+        } else {
+          // Done deleting → move to next
+          setTitleIndex((prevIndex) => (prevIndex + 1) % jobTitles.length);
+          setCharIndex(0);
+          setIsDeleting(false);
+        }
+      }, PAUSE_DELAY);
     }
-    particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: window.innerWidth < 768 ? 0.03 : 0.05,
-      color: 0xffffff,
-      opacity: 0.8,
-      transparent: true,
-    });
-
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particles);
-
-    camera.position.z = 5;
-    const animate = () => {
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    const handleResize = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, titleIndex]);
 
   return (
     <section id="intro" className="intro-container">
-      <div ref={mountRef} className="three-background" />
-
       <motion.div
         className="intro-content"
         initial={{ opacity: 0, y: 30 }}
@@ -75,9 +61,18 @@ const Intro: React.FC = () => {
         <motion.h1>
           Hi, I'm <span className="highlight">Tharun Motipalli</span>
         </motion.h1>
-        <motion.h2 className="typing-effect">Full Stack Developer & DevOps Engineer</motion.h2>
+
+        <motion.h2 className="typing-effect">
+          {displayedText}
+          <span className="cursor">|</span>
+        </motion.h2>
+
         <motion.p>
-          Passionate about building scalable applications, optimizing cloud infrastructure, and automating workflows.
+          I build scalable backend systems using Java, Spring Boot, and Docker, integrate cloud-native microservices with Kubernetes and AWS, and streamline DevOps pipelines for high-availability deployments.
+        </motion.p>
+
+        <motion.p className="location-info">
+          Based in Melbourne, FL | Open to Full-Time & Contract Opportunities
         </motion.p>
 
         <motion.div className="intro-buttons">

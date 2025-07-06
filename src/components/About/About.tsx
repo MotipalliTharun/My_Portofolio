@@ -11,17 +11,19 @@ const About: React.FC = () => {
             About
             <hr className="about-underline" />
           </h2>
+
           <p className="about-text">
-            I'm a <span className="highlight">Full-Stack Developer</span> with a passion for building innovative and user-centric solutions. I thrive in agile environments and love solving real-world problems through code. My expertise lies in creating high-quality, scalable applications that deliver exceptional user experiences.
+            I'm a <span className="highlight">Java Full Stack Developer</span> with over 3 years of experience designing and deploying scalable, cloud-native backend systems. I specialize in <span className="highlight">Spring Boot, Hibernate, REST/SOAP APIs</span>, and containerized microservices using <span className="highlight">Docker and Kubernetes</span>.
           </p>
           <br />
+
           <p className="about-text">
-            I have a strong foundation in both front-end and back-end development, with experience in technologies like React, Node.js, Python, and SQL. I'm also deeply interested in <span className="highlight">Cyber Security</span> and continuously strive to enhance my skills in this domain.
+            I've built and maintained high-performance backend platforms for leading organizations like <span className="highlight">Citigroup, Bloomin' Brands, and Renault Nissan</span>. My work includes integrating <span className="highlight">OAuth 2.0 authentication</span>, implementing <span className="highlight">CI/CD pipelines</span> using Jenkins and GitHub Actions, and optimizing relational and NoSQL databases.
           </p>
           <br />
+
           <p className="about-text">
-            I'm currently exploring new opportunities and{" "}
-            <span className="highlight">open to collaborations</span>. If you'd like to work together or just say hello, feel free to{" "}
+            I'm currently pursuing my Master’s in Computer Science at <span className="highlight">Florida Institute of Technology</span>, and I’m <span className="highlight">actively seeking full-time opportunities</span> in software engineering and DevOps. If you're interested in collaborating or hiring, feel free to{" "}
             <ScrollLink
               smooth={true}
               offset={-100}
@@ -33,6 +35,7 @@ const About: React.FC = () => {
             </ScrollLink>
           </p>
         </div>
+
         <div className="about-image-placeholder">
           <img src="src/assets/gamer.png" alt="About Me" className="about-image" />
         </div>

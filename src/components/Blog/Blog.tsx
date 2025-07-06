@@ -10,28 +10,31 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
-    date: "Feb 09, 2025",
-    title: "How I Built My Portfolio 🚀",
-    description: "A breakdown of how I developed my personal website using React, Node.js, and MongoDB.",
+    date: "Jul 15, 2025",
+    title: "Building Scalable Microservices with Spring Boot",
+    description:
+      "A step-by-step guide on designing and deploying scalable microservices architecture using Spring Boot and Docker.",
     link: "#",
   },
   {
-    date: "Jan 22, 2025",
-    title: "Exploring Flutter for App Development",
-    description: "Building a Flutter app similar to DigiFarmer to enhance smart farming solutions.",
+    date: "Jun 30, 2025",
+    title: "Automating CI/CD Pipelines with Jenkins & Kubernetes",
+    description:
+      "How I streamlined deployment workflows using Jenkins, Maven, and Kubernetes for cloud-native applications.",
     link: "#",
   },
   {
-    date: "Dec 10, 2024",
-    title: "Software Reliability in Aviation",
-    description: "A deep dive into Airbus' Fly-By-Wire system and the role of n-version programming.",
+    date: "May 18, 2025",
+    title: "Optimizing Database Access with Hibernate and SQL",
+    description:
+      "Tips and techniques for improving performance and reliability in Java backend services using Hibernate ORM and complex SQL queries.",
     link: "#",
   },
 ];
 
 const Blog: React.FC = () => {
   return (
-    <section id='blog' className="blog-container">
+    <section id="blog" className="blog-container">
       <h2 className="blog-title">Recent Blog Posts</h2>
       <div className="blog-content">
         {blogPosts.map((post, index) => (
@@ -39,7 +42,7 @@ const Blog: React.FC = () => {
             <span className="blog-date">{post.date}</span>
             <h3 className="blog-heading">{post.title}</h3>
             <p className="blog-description">{post.description}</p>
-            <a href={post.link} className="blog-link">
+            <a href={post.link} className="blog-link" target="_blank" rel="noopener noreferrer">
               Read More →
             </a>
           </div>

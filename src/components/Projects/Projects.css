@@ -1,114 +1,265 @@
+/* Container and base styles */
 .projects-container {
   max-width: 100%;
-  padding: 20px; /* Reduced padding for mobile */
+  padding: 30px 40px;
   text-align: center;
-  color: #ffffff;
+  color: #c9d1d9;
   background: #0d1117;
   min-height: 100vh;
+  font-family: 'Fira Mono', monospace;
+  overflow-x: hidden;
 }
+.projects-container {
+  /* existing styles... */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  
+  background:linear-gradient(270deg, #121212, #143f80, #0a795b, #00e5ff, #121212);
+
+  background-size: 800% 800%;
+  animation: gradientBackgroundAnimation 20s ease infinite;
+}
+
+/* Gradient animation keyframes */
+@keyframes gradientBackgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 .projects-title {
-  font-size: 1.8rem; /* Smaller font size for mobile */
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 15px; /* Reduced margin for mobile */
+  margin-bottom: 25px;
+  color: #58a6ff;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 6px #58a6ffaa;
 }
 
+/* Wrapper around scroll and buttons */
 .projects-wrapper {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
+/* Scroll container showing exactly 2 cards + gap */
 .projects-scroll {
   display: flex;
-  flex-direction: column; /* Stack cards vertically */
-  gap: 15px; /* Reduced gap for mobile */
-  overflow-y: auto; /* Enable vertical scrolling */
+  flex-direction: row;
+  gap: 30px;
+  overflow-x: auto;
   scroll-behavior: smooth;
-  padding-bottom: 10px;
-  max-width: 100%; /* Full width for mobile */
+  padding-bottom: 20px;
+  max-width: calc(2 * 380px + 30px);
+  margin: 0 10px;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* Hide default scrollbar */
 .projects-scroll::-webkit-scrollbar {
-  display: none; /* Hide scrollbar */
+  display: none;
+}
+.projects-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
+/* Project cards */
 .projects-card {
-  flex: 0 0 auto; /* Allow cards to grow/shrink as needed */
+  flex: 0 0 380px;
   background: #161b22;
-  width: 100%; /* Full width for column layout */
-  max-width: 400px; /* Limit card width for better readability */
-  height: auto; /* Allow height to adjust based on content */
-  padding: 15px; /* Reduced padding for mobile */
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 30px 25px;
+  border-radius: 12px;
+  scroll-snap-align: start;
   text-align: left;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideFadeIn 0.7s forwards;
+  animation-delay: var(--delay, 0s);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 0 8px #0f1c3f;
+  color: #c9d1d9;
 }
 
 .projects-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(88, 166, 255, 0.2);
+  transform: translateY(-7px);
+  box-shadow:
+    0 10px 25px rgba(88, 166, 255, 0.4),
+    0 0 12px #58a6ff;
 }
 
+/* Animation keyframes */
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Project name and description */
 .project-name {
-  font-size: 1.3rem; /* Smaller font size for mobile */
-  font-weight: 600;
-  margin-bottom: 5px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #58a6ff;
+  text-shadow: 0 0 5px #58a6ffcc;
 }
 
 .project-description {
-  font-size: 0.9rem; /* Smaller font size for mobile */
-  color: #c9d1d9;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  line-height: 1.4;
+  color: #abb8d1;
 }
 
-.project-link {
-  font-size: 0.9rem; /* Smaller font size for mobile */
-  color: #58a6ff;
+/* Small programmer-themed button */
+.project-button-small {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0d1117;
+  background: linear-gradient(135deg, #58a6ff, #1c3c72);
+  border: 2px solid #58a6ff;
+  border-radius: 8px;
+  cursor: pointer;
   text-decoration: none;
-  font-weight: 500;
+  font-family: 'Fira Mono', monospace;
+  box-shadow:
+    0 0 6px #58a6ff88,
+    inset 0 0 8px #58a6ff66;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  user-select: none;
+  margin-right: 10px;
 }
 
-.project-link:hover {
-  text-decoration: underline;
+.project-button-small:hover,
+.project-button-small:focus {
+  background: linear-gradient(135deg, #1c3c72, #58a6ff);
+  box-shadow:
+    0 0 15px #58a6ffdd,
+    inset 0 0 12px #58a6ffcc;
+  outline: none;
+  transform: translateY(-2px);
 }
 
-/* Scroll buttons (not needed for column view) */
+.project-button-small:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 8px #3c7dddcc,
+    inset 0 0 6px #3c7ddd99;
+}
+
+/* Scroll buttons */
 .scroll-btn {
-  display: none; /* Hide scroll buttons for column layout */
+  background: #161b22;
+  border: 2px solid #58a6ff;
+  color: #58a6ff;
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 700;
+  padding: 0 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow:
+    0 0 8px #58a6ffaa,
+    inset 0 0 6px #58a6ff55;
+  flex-shrink: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Media Queries for Mobile */
-@media (max-width: 768px) {
-  .projects-container {
-    padding: 15px; /* Further reduced padding for smaller screens */
-  }
+.scroll-btn:hover,
+.scroll-btn:focus {
+  background: #58a6ff;
+  color: #0d1117;
+  box-shadow:
+    0 0 20px #58a6ffee,
+    inset 0 0 12px #58a6ffcc;
+  outline: none;
+  transform: translateY(-3px);
+}
 
-  .projects-title {
-    font-size: 1.5rem; /* Adjusted font size for smaller screens */
-  }
+.scroll-btn:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 10px #3c7dddcc,
+    inset 0 0 8px #3c7ddd99;
+}
 
+/* Position scroll buttons */
+.scroll-btn.left {
+  margin-right: 10px;
+}
+
+.scroll-btn.right {
+  margin-left: 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
   .projects-scroll {
-    gap: 10px; /* Further reduced gap for smaller screens */
+    max-width: calc(2 * 320px + 20px);
   }
-
   .projects-card {
-    width: 100%; /* Full width for smaller screens */
-    max-width: 100%; /* Allow cards to take full width */
-    padding: 20px; /* Further reduced padding for smaller screens */
+    flex: 0 0 320px;
+    padding: 25px 20px;
   }
-
   .project-name {
-    font-size: 1.2rem; /* Adjusted font size for smaller screens */
+    font-size: 1.3rem;
   }
-
   .project-description {
-    font-size: 0.85rem; /* Adjusted font size for smaller screens */
+    font-size: 0.95rem;
   }
+  .project-button-small {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.9rem;
+  }
+}
 
-  .project-link {
-    font-size: 0.85rem; /* Adjusted font size for smaller screens */
+@media (max-width: 480px) {
+  .projects-scroll {
+    max-width: 100%;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .projects-card {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .scroll-btn {
+    display: none;
   }
 }

@@ -12,6 +12,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #0f172a; /* dark background matching hero section */
+  color: #f8fafc;
+  overflow-x: hidden; /* prevent unwanted horizontal scroll */
+}
+
 
 a {
   font-weight: 500;

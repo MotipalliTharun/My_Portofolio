@@ -1,47 +1,99 @@
-/* Global Reset */
+/* ========== Global Reset ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ========== Base Styling ========== */
+html,
 body {
-  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0f172a; /* deep dark background */
+  color: #f8fafc;
+  font-family: 'Courier New', monospace;
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  overflow-x: hidden;
 }
 
+/* ========== Typography ========== */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
+  font-weight: bold;
+  color: #facc15;
 }
 
 p {
   margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #cbd5e1;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: #0ea5e9;
 }
 
+a:hover {
+  color: #38bdf8;
+}
+
+/* ========== Image ========== */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Container */
+/* ========== Container ========== */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* Header */
+/* ========== Sections ========== */
+.intro,
+.about,
+.skills,
+.blog,
+.projects,
+.contact {
+  padding: 3rem 1rem;
+}
+
+/* Alternate dark gradients for sections */
+.intro {
+  background: linear-gradient(145deg, #1e1b4b, #0f172a);
+}
+
+.about {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.skills {
+  background: linear-gradient(145deg, #0f172a, #0d9488);
+}
+
+.blog {
+  background: linear-gradient(145deg, #1e1b4b, #0f172a);
+}
+
+.projects {
+  background: linear-gradient(135deg, #0f172a, #0c4a6e);
+}
+
+.contact {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+}
+
+/* ========== Header ========== */
 header {
-  background-color: #333;
-  color: #fff;
+  background-color: #020617;
+  color: #facc15;
   padding: 1rem 0;
+  border-bottom: 1px solid #1e293b;
 }
 
 header .container {
@@ -50,57 +102,21 @@ header .container {
   align-items: center;
 }
 
-/* Intro Section */
-.intro {
-  padding: 2rem 0;
-  text-align: center;
-  background-color: #fff;
-}
-
-/* About Section */
-.about {
-  padding: 2rem 0;
-  background-color: #f4f4f4;
-}
-
-/* Skills Section */
-.skills {
-  padding: 2rem 0;
-  background-color: #fff;
-}
-
-/* Blog Section */
-.blog {
-  padding: 2rem 0;
-  background-color: #f4f4f4;
-}
-
-/* Projects Section */
-.projects {
-  padding: 2rem 0;
-  background-color: #fff;
-}
-
-/* Contact Section */
-.contact {
-  padding: 2rem 0;
-  background-color: #f4f4f4;
-}
-
-/* Footer */
+/* ========== Footer ========== */
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: #020617;
+  color: #94a3b8;
   padding: 1rem 0;
   text-align: center;
+  font-size: 0.9rem;
 }
 
-/* Responsive Styles */
+/* ========== Responsive Styles ========== */
 
-/* Tablets (768px and below) */
+/* Tablets (≤768px) */
 @media (max-width: 768px) {
   .container {
-    width: 95%;
+    width: 100%;
   }
 
   header .container {
@@ -109,93 +125,45 @@ footer {
   }
 
   .intro, .about, .skills, .blog, .projects, .contact {
-    padding: 1.5rem 0;
+    padding: 2rem 1rem;
   }
 
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  h3 {
-    font-size: 1.75rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  p { font-size: 1rem; }
 }
 
-/* Mobile Phones (480px and below) */
+/* Mobile (≤480px) */
 @media (max-width: 480px) {
   .container {
-    width: 100%;
-    padding: 0 10px;
-  }
-
-  header .container {
-    flex-direction: column;
-    text-align: center;
+    padding: 0 0.75rem;
   }
 
   .intro, .about, .skills, .blog, .projects, .contact {
-    padding: 1rem 0;
+    padding: 1.5rem 1rem;
   }
 
-  h1 {
-    font-size: 2rem;
-  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.3rem; }
+  p { font-size: 0.95rem; }
 
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
-
-  /* Adjust buttons and links for better touch targets */
   a, button {
-    padding: 0.5rem 1rem;
     font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 
-/* Laptops and Desktops (1024px and above) */
+/* Desktops (≥1024px) */
 @media (min-width: 1024px) {
   .container {
     max-width: 1200px;
-  }
-
-  header .container {
-    justify-content: space-between;
     padding: 0 2rem;
   }
 
-  .intro, .about, .skills, .blog, .projects, .contact {
-    padding: 3rem 0;
-  }
-
-  h1 {
-    font-size: 3rem;
-  }
-
-  h2 {
-    font-size: 2.5rem;
-  }
-
-  h3 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-  }
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.5rem; }
+  h3 { font-size: 2rem; }
+  p { font-size: 1.1rem; }
 }

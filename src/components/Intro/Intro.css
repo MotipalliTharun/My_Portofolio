@@ -1,120 +1,149 @@
-/* Intro.css */
+/* Dark Programmer Style with Floating Effects */
 .intro-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
   text-align: center;
-  background-color: #0d1117;
+  background: linear-gradient(120deg, #0a0f1a, #0f172a, #1e293b);
+  background-size: 300% 300%;
+  animation: backgroundFlow 15s ease infinite;
+  color: #e2e8f0; /* Light gray text */
+  font-family: 'Courier New', monospace;
 }
 
-.three-background {
+/* Background Animation */
+@keyframes backgroundFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating symbols effect */
+.intro-container::before {
+  content: "{} </> == ! ";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  top: 20%;
+  left: 10%;
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.03);
+  animation: floatSymbols 20s linear infinite;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
+@keyframes floatSymbols {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+/* Content Styling */
 .intro-content {
-  position: relative;
-  z-index: 1;
-  color: #ffffff;
-  max-width: 80%;
+  width: 100%;
+  max-width: 1200px;
   padding: 1rem;
+  margin: 0 auto;
+  z-index: 1;
+  text-align: center;
 }
 
 h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 2.8rem;
   font-weight: 700;
+  margin-bottom: 1rem;
+  color: #60a5fa; /* Blue glow */
+  text-shadow: 0 0 10px #3b82f6;
 }
 
-h2 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 500;
-  margin-top: 0.5rem;
-  opacity: 0.8;
+.highlight {
+  color: #facc15; /* Yellow */
+  text-shadow: 0 0 10px #facc15;
 }
-
 .typing-effect {
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid white;
-  display: inline-block;
-  animation: typing 3s steps(30, end) infinite alternate, blink 0.6s step-end infinite;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a5b4fc;
+  margin-top: 1rem;
+  min-height: 2.5rem;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  color: #ffffff;
 }
 
 @keyframes blink {
   50% {
-    border-color: transparent;
+    opacity: 0;
   }
 }
 
+.location-info {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-top: 0.5rem;
+}
+
+
+.typing-effect {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
 p {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  margin: 1rem 0;
-  opacity: 0.9;
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
 }
 
 .intro-buttons {
-  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
+/* Button Styles */
 .btn {
-  display: inline-block;
-  font-size: 1rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  padding: 0.75rem 1.5rem;
   font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(100, 149, 237, 0.2);
+  border: none;
 }
 
 .primary-btn {
-  background-color: #1f6feb;
-  color: white;
-  margin-right: 0.75rem;
+  background-color: #2563eb;
+  color: #f8fafc;
+  box-shadow: 0 0 15px #2563eb;
+}
+
+.primary-btn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 0 25px #1d4ed8;
 }
 
 .secondary-btn {
   background-color: transparent;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid #facc15;
+  color: #facc15;
 }
 
-.btn:hover {
-  transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-  .intro-content {
-    max-width: 90%;
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  .btn {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
-  }
+.secondary-btn:hover {
+  background-color: #facc15;
+  color: #1e293b;
+  box-shadow: 0 0 15px #facc15;
 }

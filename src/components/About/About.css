@@ -1,108 +1,125 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.about-section {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  background: linear-gradient(-45deg, #1e1b4b, #0f172a, #0d9488, #1e293b);
+  background-size: 300% 300%;
+  animation: aboutGradientShift 18s ease infinite;
+  color: #e0f2f1;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* About Section Styles */
-.about-section {
-  display: flex;
-  padding: 10rem 15rem;
-  background-color: #D2DAFF;
-  color: #1a1a1a;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
+/* Gradient Animation */
+@keyframes aboutGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating text symbols */
+.about-section::before {
+  content: "<div> & {} !==";
+  position: absolute;
+  top: 60%;
+  right: 5%;
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.03);
+  animation: floatAboutSymbols 25s linear infinite;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@keyframes floatAboutSymbols {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-150vh) rotate(360deg);
+  }
 }
 
 .about-container {
-  margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 3rem;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row;
+  }
 }
 
 .about-content {
   flex: 1;
+  padding: 1rem;
 }
 
 .about-heading {
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 1.2rem;
-  position: relative;
-  color: #1a1a1a;
+  color: #eab308; /* golden-yellow */
+  text-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
+  margin-bottom: 1rem;
 }
 
 .about-underline {
-  width: 25px;
-  height: 4px;
-  background-color: #19376D;
   border: none;
-  position: absolute;
-  left: 0;
-  bottom: -8px;
+  height: 3px;
+  width: 50px;
+  background-color: #eab308;
+  margin: 0.5rem 0 1.5rem;
 }
 
 .about-text {
   font-size: 1.1rem;
-  line-height: 1.7;
-  color: #333;
+  color: #e2e8f0;
+  line-height: 1.8;
 }
 
 .highlight {
+  color: #facc15;
   font-weight: bold;
-  color: #03346E;
+  text-shadow: 0 0 5px rgba(250, 204, 21, 0.4);
 }
 
 .contact-link {
-  color: #576CBC;
-  font-weight: bold;
-  text-decoration: none;
+  color: #0ea5e9;
   cursor: pointer;
-  transition: color 0.3s ease;
+  text-decoration: underline;
 }
 
 .contact-link:hover {
-  color: #1a1a1a;
-  text-decoration: underline;
+  color: #38bdf8;
 }
 
 .about-image-placeholder {
   flex: 1;
-  max-width: 400px;
-  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
 .about-image {
+  max-width: 300px;
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ 
+  /* box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); */
 }
+/* ====================== */
+/* Existing code remains  */
+/* Add these at the end   */
+/* ====================== */
 
-/* Responsive Design */
-/* For Tablets */
+/* Optimize font size and padding for tablets */
 @media (max-width: 1024px) {
-  .about-section {
-    padding: 6rem 3rem;
-  }
-
-  .about-container {
-    gap: 2rem;
-    flex-direction: column;
-    text-align: center;
-  }
-
   .about-heading {
     font-size: 2.2rem;
   }
@@ -111,31 +128,27 @@
     font-size: 1rem;
   }
 
-  .about-underline {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .about-image-placeholder {
-    max-width: 80%;
+  .about-image {
+    max-width: 250px;
   }
 }
 
-/* For Mobile Devices */
+/* Stack content for mobile and center-align */
 @media (max-width: 768px) {
-  .about-section {
-    padding: 4rem 2rem;
-  }
-
   .about-container {
-    gap: 1.5rem;
     flex-direction: column;
-    align-items: center;
+    gap: 2rem;
+    padding: 0 1rem;
     text-align: center;
   }
 
   .about-content {
-    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  .about-image {
+    max-width: 200px;
+    margin-top: 1rem;
   }
 
   .about-heading {
@@ -146,22 +159,10 @@
     font-size: 0.95rem;
     line-height: 1.6;
   }
-
-  .about-underline {
-    width: 30px;
-  }
-
-  .about-image-placeholder {
-    max-width: 90%;
-  }
 }
 
-/* For Small Mobile Devices */
+/* Smaller phones */
 @media (max-width: 480px) {
-  .about-section {
-    padding: 3rem 1.5rem;
-  }
-
   .about-heading {
     font-size: 1.8rem;
   }
@@ -170,11 +171,7 @@
     font-size: 0.9rem;
   }
 
-  .about-underline {
-    width: 20px;
-  }
-
-  .about-image-placeholder {
-    max-width: 100%;
+  .about-image {
+    max-width: 180px;
   }
 }
