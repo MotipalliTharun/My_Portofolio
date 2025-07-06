@@ -37,7 +37,7 @@ const About: React.FC = () => {
         </div>
 
         <div className="about-image-placeholder">
-          <img src="src/assets/gamer.png" alt="About Me" className="about-image" />
+          <img src="public\gamer.png" alt="About Me" className="about-image" />
         </div>
       </div>
     </section>
