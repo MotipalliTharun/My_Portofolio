@@ -39,7 +39,7 @@ const Header: React.FC = () => {
           <li><a href="#contact" className="nav-link">Contact</a></li>
           <li>
             <a 
-              href="public\Tharun_Motipalli_Resume.pdf" 
+              href="\Tharun_Motipalli_Resume.pdf" 
               className="resume-button"
               download
               target="_blank"

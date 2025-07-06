@@ -17,6 +17,22 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(6px);
 }
+.resume-button {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  background-color: #0ef6cc;
+  color: #0f172a;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #06d3b5;
+  color: #0f172a;
+}
+
 
 /* Nav Container */
 .nav {
