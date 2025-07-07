@@ -1,31 +1,77 @@
 .footer {
-  background-color: #282c34;
-  color: #ffffff;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  padding: 40px 20px;
   text-align: center;
-  padding: 1.5rem 1rem;
-  margin-top: 2rem;
-  font-size: 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: inset 0 1px 5px rgba(255, 255, 255, 0.1);
-  user-select: none;
+  font-family: 'Fira Mono', monospace;
+  border-top: 1px solid #30363d;
+  box-shadow: 0 -2px 10px rgba(88, 166, 255, 0.1);
+  position: relative;
+  z-index: 10;
 }
 
-.footer a {
-  color: #61dafb;
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  font-size: 24px;
+  color: #58a6ff;
+  text-shadow: 0 0 6px #58a6ffaa;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.footer-description {
+  font-size: 16px;
+  color: #8b949e;
+  margin-bottom: 20px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: #58a6ff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 16px;
 }
 
-.footer a:hover,
-.footer a:focus {
-  color: #21a1f1;
-  text-decoration: underline;
+.footer-link:hover,
+.footer-link:focus {
+  color: #c9d1d9;
+  border-bottom: 2px solid #58a6ff;
+  text-shadow: 0 0 5px #58a6ffcc;
   outline: none;
 }
 
-@media (max-width: 480px) {
-  .footer {
-    font-size: 0.9rem;
-    padding: 1rem 0.5rem;
+.footer-copy {
+  font-size: 14px;
+  color: #6e7681;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer-title {
+    font-size: 20px;
+  }
+  .footer-description {
+    font-size: 14px;
+  }
+  .footer-link {
+    font-size: 14px;
+  }
+  .footer-socials {
+    gap: 15px;
   }
 }

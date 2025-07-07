@@ -1,22 +1,25 @@
 /* Blog Section Styles */
 .blog-section {
-  padding: 5rem 1.5rem;
+  padding: 5rem 1rem;
   background: linear-gradient(135deg, #0f111a, #1a1f38);
   color: #e5e7eb;
   text-align: center;
   font-family: 'Fira Code', monospace;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 
 /* Heading */
 .blog-heading {
-  font-size: 2.4rem; /* reduced from 3rem */
+  font-size: 2.4rem;
   font-weight: 700;
   color: #0ef6cc;
   text-shadow: 0 0 10px rgba(14, 246, 204, 0.5);
   margin-bottom: 1rem;
-  position: relative;
 }
 
 /* Underline */
@@ -35,16 +38,19 @@
   max-width: 700px;
   margin: 0 auto 4rem;
   line-height: 1.8;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* Blog Grid */
 .blog-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 2.5rem;
-  max-width: 1280px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* Blog Card */
@@ -70,6 +76,7 @@
   height: 220px;
   object-fit: cover;
   filter: brightness(0.85);
+  display: block;
 }
 
 /* Content */
@@ -79,11 +86,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 /* Title */
 .blog-title {
-  font-size: 1.3rem; /* reduced from 1.5rem */
+  font-size: 1.3rem;
   font-weight: 600;
   color: #0ef6cc;
   margin-bottom: 1rem;
@@ -91,7 +99,7 @@
 
 /* Excerpt */
 .blog-excerpt {
-  font-size: 1.05rem; /* slightly smaller */
+  font-size: 1.05rem;
   color: #cbd5e1;
   line-height: 1.7;
   margin-bottom: 1.5rem;
@@ -99,7 +107,7 @@
 
 /* Read More */
 .blog-read-more {
-  font-size: 0.95rem; /* slightly smaller */
+  font-size: 0.95rem;
   color: #38bdf8;
   text-decoration: none;
   font-weight: 600;
@@ -112,9 +120,18 @@
 }
 
 /* Responsive Tweaks */
+@media (max-width: 1024px) {
+  .blog-heading {
+    font-size: 2.2rem;
+  }
+  .blog-description {
+    font-size: 1.15rem;
+  }
+}
+
 @media (max-width: 768px) {
   .blog-heading {
-    font-size: 2rem; /* reduced from 2.6rem */
+    font-size: 2rem;
   }
 
   .blog-description {
@@ -122,11 +139,11 @@
   }
 
   .blog-title {
-    font-size: 1.2rem; /* reduced */
+    font-size: 1.2rem;
   }
 
   .blog-excerpt {
-    font-size: 0.95rem; /* reduced */
+    font-size: 0.95rem;
   }
 
   .blog-content {
@@ -140,28 +157,30 @@
 
 @media (max-width: 480px) {
   .blog-section {
-    padding: 3.5rem 1rem;
+    padding: 3rem 0.8rem;
   }
 
   .blog-heading {
-    font-size: 1.7rem; /* reduced from 2.2rem */
+    font-size: 1.7rem;
   }
 
   .blog-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    padding: 0 0.5rem;
   }
 
   .blog-container {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
   }
 
   .blog-content {
-    padding: 1.2rem;
+    padding: 1rem;
   }
 
   .blog-title {
-    font-size: 1.05rem; /* reduced */
+    font-size: 1.05rem;
   }
 
   .blog-excerpt {

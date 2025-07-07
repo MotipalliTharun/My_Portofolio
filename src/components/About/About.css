@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 /* Gradient Animation */
@@ -18,7 +19,7 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Floating text symbols */
+/* Floating Symbols */
 .about-section::before {
   content: "<div> & {} !==";
   position: absolute;
@@ -32,28 +33,18 @@
 }
 
 @keyframes floatAboutSymbols {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-150vh) rotate(360deg);
-  }
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-150vh) rotate(360deg); }
 }
 
 .about-container {
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  width: 100%;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  gap: 3rem;
   z-index: 1;
-}
-
-@media (min-width: 768px) {
-  .about-container {
-    flex-direction: row;
-  }
 }
 
 .about-content {
@@ -64,7 +55,7 @@
 .about-heading {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #eab308; /* golden-yellow */
+  color: #eab308;
   text-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
   margin-bottom: 1rem;
 }
@@ -110,45 +101,50 @@
   max-width: 300px;
   width: 100%;
   height: auto;
- 
-  /* box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); */
 }
-/* ====================== */
-/* Existing code remains  */
-/* Add these at the end   */
-/* ====================== */
 
-/* Optimize font size and padding for tablets */
-@media (max-width: 1024px) {
+/* ========================== */
+/*       RESPONSIVE CSS       */
+/* ========================== */
+
+/* Large Desktops (≥1440px) */
+@media (min-width: 1440px) {
   .about-heading {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
 
   .about-text {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    max-width: 800px;
   }
 
   .about-image {
-    max-width: 250px;
+    max-width: 350px;
   }
 }
 
-/* Stack content for mobile and center-align */
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 0 1rem;
-    text-align: center;
+/* Laptops (1024px–1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .about-heading {
+    font-size: 2.4rem;
   }
 
-  .about-content {
-    padding: 0.5rem;
+  .about-text {
+    font-size: 1.05rem;
   }
 
   .about-image {
-    max-width: 200px;
-    margin-top: 1rem;
+    max-width: 300px;
+  }
+}
+
+/* Tablets (768px–1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-container {
+    flex-direction: row;
+    padding: 0 2rem;
+    gap: 2rem;
   }
 
   .about-heading {
@@ -156,22 +152,82 @@
   }
 
   .about-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-image {
+    max-width: 250px;
   }
 }
 
-/* Smaller phones */
-@media (max-width: 480px) {
+/* Mobile Phones (481px–767px) */
+@media (max-width: 767px) {
+  .about-section {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+
+  .about-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1.2rem;
+  }
+
+  .about-content {
+    padding: 0.5rem;
+  }
+
   .about-heading {
     font-size: 1.8rem;
   }
 
   .about-text {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .about-image {
-    max-width: 180px;
+    max-width: 200px;
+    margin-top: 1rem;
+  }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .about-heading {
+    font-size: 1.6rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+    line-height: 1.5;
+  }
+
+  .about-underline {
+    width: 30px;
+    height: 2px;
+    margin: 0.3rem auto 1rem;
+  }
+
+  .about-image {
+    max-width: 160px;
+  }
+}
+
+/* Extra Small Devices (≤360px) */
+@media (max-width: 360px) {
+  .about-heading {
+    font-size: 1.4rem;
+  }
+
+  .about-text {
+    font-size: 0.85rem;
+    padding: 0 0.25rem;
+  }
+
+  .about-image {
+    max-width: 140px;
   }
 }

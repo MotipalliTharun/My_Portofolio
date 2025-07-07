@@ -1,4 +1,7 @@
-/* General Reset */
+/* ========================== */
+/* Base Reset and Container  */
+/* ========================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,11 +10,14 @@
 
 body {
   font-family: 'Fira Mono', 'Source Code Pro', monospace;
-  background-color: #1e1e2f; /* Dark navy terminal background */
-  color: #cfd8dc; /* Soft light gray */
+  background-color: #1e1e2f;
+  color: #cfd8dc;
 }
 
-/* Contact Section */
+/* ========================== */
+/* Contact Section Container  */
+/* ========================== */
+
 .contact-section {
   display: flex;
   justify-content: center;
@@ -21,7 +27,7 @@ body {
   background: linear-gradient(135deg, #1e1e2f 25%, #2c2f44 75%);
 }
 
-/* Container with animated gradient background */
+/* Animated Container Card */
 .contact-container {
   padding: 2rem;
   border-radius: 12px;
@@ -32,30 +38,26 @@ body {
   font-family: 'Fira Mono', monospace;
   color: #cfd8dc;
   box-shadow: 0 0 20px rgba(40, 130, 255, 0.6);
-
   background: linear-gradient(270deg, #282c34, #3a3f58, #61dafb, #21a1f1);
   background-size: 800% 800%;
   animation: gradientShift 15s ease infinite;
 }
 
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Headings */
+/* ========================== */
+/* Headings & Description     */
+/* ========================== */
+
 .contact-heading {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #61dafb; /* React blue */
+  color: #61dafb;
   text-shadow: 0 0 8px #61dafb88;
   letter-spacing: 1px;
 }
@@ -66,7 +68,10 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Form */
+/* ========================== */
+/* Contact Form               */
+/* ========================== */
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -83,8 +88,8 @@ body {
   background-color: #212533;
   color: #cfd8dc;
   outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Fira Mono', monospace;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .form-group input::placeholder,
@@ -105,7 +110,10 @@ body {
   min-height: 120px;
 }
 
-/* Button */
+/* ========================== */
+/* Submit Button              */
+/* ========================== */
+
 .submit-button {
   padding: 0.75rem 2rem;
   font-size: 1rem;
@@ -117,7 +125,7 @@ body {
   font-weight: 700;
   font-family: 'Fira Mono', monospace;
   box-shadow: 0 0 15px #61dafbcc;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .submit-button:hover {
@@ -126,14 +134,45 @@ body {
   transform: translateY(-3px);
 }
 
-/* Responsive Design */
-@media (max-width: 480px) {
+/* ========================== */
+/* Responsive Design          */
+/* ========================== */
+
+/* Tablets */
+@media (max-width: 768px) {
   .contact-container {
-    padding: 1.5rem;
+    padding: 1.75rem;
   }
 
   .contact-heading {
     font-size: 1.8rem;
+  }
+
+  .contact-description {
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  .submit-button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.8rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .contact-heading {
+    font-size: 1.6rem;
   }
 
   .contact-description {
@@ -147,7 +186,7 @@ body {
   }
 
   .submit-button {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     padding: 0.5rem 1.5rem;
   }
 }

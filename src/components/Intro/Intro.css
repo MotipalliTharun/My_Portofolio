@@ -1,4 +1,4 @@
-/* Dark Programmer Style with Floating Effects */
+/* Intro Section Base Styles */
 .intro-container {
   min-height: 100vh;
   padding: 3rem 1.5rem;
@@ -11,18 +11,18 @@
   background: linear-gradient(120deg, #0a0f1a, #0f172a, #1e293b);
   background-size: 300% 300%;
   animation: backgroundFlow 15s ease infinite;
-  color: #e2e8f0; /* Light gray text */
+  color: #e2e8f0;
   font-family: 'Courier New', monospace;
 }
 
-/* Background Animation */
+/* Animated Gradient */
 @keyframes backgroundFlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Floating symbols effect */
+/* Floating Code Symbols */
 .intro-container::before {
   content: "{} </> == ! ";
   position: absolute;
@@ -36,18 +36,13 @@
 }
 
 @keyframes floatSymbols {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-100vh) rotate(360deg);
-  }
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-100vh) rotate(360deg); }
 }
 
-/* Content Styling */
+/* Intro Content */
 .intro-content {
   width: 100%;
-  max-width: 1200px;
   padding: 1rem;
   margin: 0 auto;
   z-index: 1;
@@ -58,19 +53,21 @@ h1 {
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #60a5fa; /* Blue glow */
+  color: #60a5fa;
   text-shadow: 0 0 10px #3b82f6;
 }
 
 .highlight {
-  color: #facc15; /* Yellow */
+  color: #facc15;
   text-shadow: 0 0 10px #facc15;
 }
+
+/* Typing Effect */
 .typing-effect {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #a5b4fc;
-  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
   min-height: 2.5rem;
 }
 
@@ -82,31 +79,17 @@ h1 {
 }
 
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  50% { opacity: 0; }
 }
 
-.location-info {
-  font-size: 0.9rem;
-  color: #cbd5e1;
-  margin-top: 0.5rem;
-}
-
-
-.typing-effect {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #94a3b8;
-  margin-bottom: 1.5rem;
-}
-
+/* Paragraph */
 p {
   font-size: 1.1rem;
   color: #cbd5e1;
   margin-bottom: 2rem;
 }
 
+/* Buttons */
 .intro-buttons {
   display: flex;
   justify-content: center;
@@ -114,7 +97,6 @@ p {
   flex-wrap: wrap;
 }
 
-/* Button Styles */
 .btn {
   padding: 0.75rem 1.5rem;
   font-weight: 600;
@@ -146,4 +128,82 @@ p {
   background-color: #facc15;
   color: #1e293b;
   box-shadow: 0 0 15px #facc15;
+}
+
+/* ===================== */
+/* Responsive Typography */
+/* ===================== */
+
+/* Extra Large Screens (≥1440px) */
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .typing-effect {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablets & Laptops (768px–1439px) */
+@media (max-width: 1439px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  .typing-effect {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+  }
+}
+
+/* Mobile Phones (481px–767px) */
+@media (max-width: 767px) {
+  .intro-container {
+    padding: 2.5rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .typing-effect {
+    font-size: 1.15rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.65rem 1.2rem;
+  }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .typing-effect {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
 }

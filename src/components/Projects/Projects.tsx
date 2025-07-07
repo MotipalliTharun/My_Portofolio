@@ -10,8 +10,20 @@ interface Project {
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 480;
+      setIsMobile(mobile);
+      updateScrollButtons();
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -30,65 +42,57 @@ const Projects: React.FC = () => {
         console.error("Error fetching projects:", error);
       }
     };
-
     fetchProjects();
   }, []);
 
-  // Update scroll buttons visibility
   const updateScrollButtons = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth);
-    }
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth);
   };
 
-  // Update on scroll
   useEffect(() => {
-    const current = scrollRef.current;
-    if (!current) return;
-
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", updateScrollButtons);
     updateScrollButtons();
-
-    current.addEventListener("scroll", updateScrollButtons);
-    window.addEventListener("resize", updateScrollButtons);
-
-    return () => {
-      current.removeEventListener("scroll", updateScrollButtons);
-      window.removeEventListener("resize", updateScrollButtons);
-    };
-  }, [projects]);
+    return () => el.removeEventListener("scroll", updateScrollButtons);
+  }, [projects, isMobile]);
 
   const scrollLeft = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -380, behavior: "smooth" });
-    }
+    scrollRef.current?.scrollBy({
+      left: -scrollRef.current.clientWidth,
+      behavior: "smooth",
+    });
   };
 
   const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 380, behavior: "smooth" });
-    }
+    scrollRef.current?.scrollBy({
+      left: scrollRef.current.clientWidth,
+      behavior: "smooth",
+    });
   };
 
   return (
     <section id="projects" className="projects-container">
       <h2 className="projects-title">My Projects</h2>
+
       <div className="projects-wrapper">
-        {canScrollLeft && (
-          <button
-            className="scroll-btn left"
-            onClick={scrollLeft}
-            aria-label="Scroll projects left"
-          >
+        {isMobile && canScrollLeft && (
+          <button className="scroll-btn left" onClick={scrollLeft}>
             ‹
           </button>
         )}
-        <div className="projects-scroll" ref={scrollRef}>
+
+        <div
+          className={`projects-scroll ${isMobile ? "single-card" : ""}`}
+          ref={scrollRef}
+        >
           {projects.map((project, index) => (
             <div
-              className="projects-card"
               key={project.name}
+              className="projects-card"
               style={{ "--delay": `${index * 0.15}s` } as React.CSSProperties}
             >
               <h3 className="project-name">{project.name}</h3>
@@ -104,12 +108,9 @@ const Projects: React.FC = () => {
             </div>
           ))}
         </div>
-        {canScrollRight && (
-          <button
-            className="scroll-btn right"
-            onClick={scrollRight}
-            aria-label="Scroll projects right"
-          >
+
+        {isMobile && canScrollRight && (
+          <button className="scroll-btn right" onClick={scrollRight}>
             ›
           </button>
         )}
