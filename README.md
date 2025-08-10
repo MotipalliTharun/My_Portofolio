@@ -1,47 +1,60 @@
-# My Portfolio
+🌟 Tharun Motipalli – Developer Portfolio
 
-![Portfolio Logo](src/assets/image.png)  <!-- Replace this with the correct path to your image -->
 
-Welcome to my personal portfolio! This repository showcases my projects, skills, and experiences as a software developer. Below, you'll find more information about me and the work I've done.
+Welcome to my personal portfolio repository!
+This project showcases my skills, projects, and experience as a Java Full Stack Developer with expertise in Cloud & DevOps. It serves as a central hub for recruiters, collaborators, and fellow developers to explore my work.
 
-## Table of Contents
+🔗 Live Portfolio: View Here
 
-- [About Me](#about-me)
-- [Skills](#skills)
-- [Projects](#projects)
-- [Contact](#contact)
+📌 Table of Contents
+About Me
 
-## About Me
+Skills
 
-I am a passionate software developer with experience in building full-stack web applications. I specialize in technologies like React, Node.js, MongoDB, and GraphQL. You can check out my projects below and feel free to reach out to me if you have any questions.
+Highlighted Projects
 
-## Skills
+Contact
 
-- **Languages**: JavaScript, Python, C++
-- **Frameworks**: React, Node.js, Express
-- **Databases**: MongoDB, SQL
-- **Tools**: Git, Docker, Webpack
-- **Other**: REST APIs, GraphQL, Agile Development
+👨‍💻 About Me
+I am an innovative and results-driven Java Full Stack Developer with experience designing and deploying secure, scalable applications. My work spans enterprise fintech platforms, cloud-native architectures, and real-time data solutions.
 
-## Projects
+🚀 Current Focus: Cloud computing, microservices, and high-performance API design
 
-### [Project 1: Project Title](link-to-project)
-Description of the project and technologies used.
+🌍 Passionate About: Building impactful solutions, mentoring developers, and exploring emerging tech like AR and data streaming
 
-### [Project 2: Project Title](link-to-project)
-Description of the project and technologies used.
+⚡ Strengths: Agile development, end-to-end system design, DevOps pipelines
 
-### [Project 3: Project Title](link-to-project)
-Description of the project and technologies used.
+🛠 Skills
+Languages
+Java 17/11/8, JavaScript (ES6+), Python, TypeScript, HTML, CSS
 
-## Contact
+Frameworks & Libraries
+Spring Boot, Hibernate, React.js, Node.js, Express.js, Flask, Django
 
-Feel free to reach out to me via:
+Cloud & DevOps
+AWS (EC2, S3, RDS, Lambda, VPC), Azure, Docker, Kubernetes, Jenkins, GitHub Actions, Terraform
 
-- **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
-- **GitHub**: [Your GitHub](https://github.com/MotipalliTharun)
+Databases
+PostgreSQL, MySQL, MongoDB, Redis, Oracle
 
----
+Other Expertise
+REST & gRPC APIs, Kafka, RabbitMQ, OAuth2/JWT, PCI-DSS Compliance, GraphQL, Agile/Scrum
 
-Thank you for visiting my portfolio!
+📂 Highlighted Projects
+🔹 Patient Management Microservices System
+A healthcare microservices system built with Spring Boot, gRPC, and Kafka.
+
+Secure authentication using JWT & Spring Security
+
+Containerized deployment on AWS with Docker & CloudFormation
+
+📬 Contact
+📧 Email: motipallitharunpf@gmail.com
+💼 LinkedIn: linkedin.com/in/motipalli-tharun
+💻 GitHub: github.com/MotipalliTharun
+
+<div align="center">
+💡 "Innovation is turning challenges into opportunities."
+Let’s connect and build something impactful! 🚀
+
+</div>
