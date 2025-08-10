@@ -67,9 +67,7 @@ Domain-driven microservices for banking with **Spring Cloud Gateway**, **Redis c
 * Real-time monitoring via Prometheus & Grafana
 * CI/CD pipelines with Docker & Helm
 
-### 🔹 [Interactive Augmented Reality App](https://github.com/yourusername/ar-project)
 
-An immersive educational AR experience leveraging **Unity**, **ARKit**, and **ARCore**.
 
 ---
 
