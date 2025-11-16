@@ -12,17 +12,37 @@ body {
   padding: 0;
   background: #0f172a; /* deep dark background */
   color: #f8fafc;
-  font-family: 'Courier New', monospace;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(88, 166, 255, 0.3);
+  color: #f0f6fc;
+}
+
+::-moz-selection {
+  background: rgba(88, 166, 255, 0.3);
+  color: #f0f6fc;
 }
 
 /* ========== Typography ========== */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
-  font-weight: bold;
-  color: #facc15;
+  font-weight: 700;
+  color: #f0f6fc;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
+
 html, body {
   width: 100%;
   overflow-x: hidden;
@@ -31,7 +51,8 @@ html, body {
 p {
   margin-bottom: 1rem;
   font-size: 1.1rem;
-  color: #cbd5e1;
+  color: #c9d1d9;
+  line-height: 1.7;
 }
 
 a {
@@ -49,12 +70,41 @@ img {
   height: auto;
 }
 
+/* ========== App Container ========== */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  /* Ensure chatbot is always visible */
+  overflow-y: visible;
+}
+
+/* Ensure chatbot components are not clipped */
+.App > * {
+  position: relative;
+  z-index: auto;
+}
+
+/* Chatbot should always be on top */
+.App > .chatbot-toggle,
+.App > .chatbot-container {
+  position: fixed !important;
+  z-index: 10000 !important;
+  overflow: visible !important;
+}
+
 /* ========== Container ========== */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+/* ========== Smooth Transitions ========== */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 /* ========== Sections ========== */

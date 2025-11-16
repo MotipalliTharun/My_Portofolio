@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "animejs": "^4.2.2",
     "axios": "^1.7.9",
     "framer-motion": "^12.4.1",
     "react": "^19.0.0",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@types/animejs": "^3.1.13",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@types/react-scroll": "^1.8.10",

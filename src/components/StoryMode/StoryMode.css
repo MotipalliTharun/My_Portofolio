@@ -1,0 +1,361 @@
+/* ========== Story Mode Container ========== */
+.story-mode-container {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  width: 280px;
+  max-height: calc(100vh - 100px);
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 16px;
+  padding: 20px;
+  z-index: 9999;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.story-mode-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.story-mode-container::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 3px;
+}
+
+.story-mode-container::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 3px;
+}
+
+/* ========== Story Mode Header ========== */
+.story-mode-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.story-mode-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.story-icon {
+  font-size: 20px;
+}
+
+.story-mode-close {
+  background: transparent;
+  border: none;
+  color: #c9d1d9;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.story-mode-close:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* ========== Story Chapter Info ========== */
+.story-chapter-info {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.story-chapter-number {
+  font-size: 13px;
+  font-weight: 700;
+  color: #3b82f6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.story-chapter-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+/* ========== Story Chapters List ========== */
+.story-chapters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.story-chapter-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  color: #c9d1d9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.story-chapter-item:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.story-chapter-item.active {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.15);
+}
+
+.chapter-item-icon {
+  font-size: 20px;
+  min-width: 20px;
+}
+
+.chapter-item-content {
+  flex: 1;
+}
+
+.chapter-item-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #3b82f6;
+  text-transform: uppercase;
+}
+
+.chapter-item-subtitle {
+  font-size: 13px;
+  color: #e2e8f0;
+}
+
+.chapter-complete-check {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* ========== Story Progress ========== */
+.story-progress-container {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.story-progress-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.story-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.story-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 3px;
+}
+
+.story-progress-text {
+  font-size: 11px;
+  color: #c9d1d9;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ========== Story Mode Toggle ========== */
+.story-mode-toggle {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  width: 56px;
+  height: 56px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  color: #3b82f6;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  z-index: 9999;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.story-mode-toggle:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+}
+
+.toggle-icon {
+  font-size: 22px;
+}
+
+.toggle-text {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1024px) {
+  .story-mode-container {
+    width: 260px;
+    left: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-mode-container {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100vh - 80px);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid rgba(59, 130, 246, 0.3);
+    padding: 16px;
+  }
+
+  .story-mode-title {
+    font-size: 16px;
+  }
+
+  .story-chapter-info {
+    padding: 14px;
+  }
+
+  .story-chapter-number {
+    font-size: 12px;
+  }
+
+  .story-chapter-subtitle {
+    font-size: 15px;
+  }
+
+  .story-chapter-item {
+    padding: 10px;
+  }
+
+  .chapter-item-icon {
+    font-size: 18px;
+  }
+
+  .story-mode-toggle {
+    left: 15px;
+    top: 85px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .toggle-icon {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-mode-container {
+    top: 60px;
+    max-height: calc(100vh - 70px);
+    padding: 14px;
+  }
+
+  .story-mode-title {
+    font-size: 15px;
+  }
+
+  .story-icon {
+    font-size: 18px;
+  }
+
+  .story-chapter-info {
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .story-chapters-list {
+    gap: 6px;
+  }
+
+  .story-chapter-item {
+    padding: 10px;
+  }
+
+  .chapter-item-title {
+    font-size: 11px;
+  }
+
+  .chapter-item-subtitle {
+    font-size: 12px;
+  }
+
+  .story-mode-toggle {
+    left: 12px;
+    top: 75px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .toggle-icon {
+    font-size: 18px;
+  }
+
+  .toggle-text {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .story-mode-container {
+    padding: 12px;
+  }
+
+  .story-mode-title {
+    font-size: 14px;
+  }
+
+  .story-chapter-item {
+    padding: 8px;
+  }
+
+  .story-mode-toggle {
+    width: 45px;
+    height: 45px;
+    left: 10px;
+  }
+}

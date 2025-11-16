@@ -1,0 +1,156 @@
+/* ========== Global Story Mode Styling ========== */
+.story-section {
+  position: relative;
+  padding-top: 100px;
+  scroll-margin-top: 80px;
+}
+
+/* Story Chapter Header Section */
+.story-chapter-header-section {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  text-align: center;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.story-chapter-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3b82f6;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.story-chapter-subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.story-chapter-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, #10b981, #3b82f6, transparent);
+  margin: 0 auto;
+  border-radius: 1px;
+}
+
+/* Story Mode App Container */
+.story-mode-app {
+  position: relative;
+}
+
+/* Smooth transitions between sections */
+.story-section {
+  transition: padding-top 0.3s ease;
+}
+
+/* Responsive story headers */
+@media (max-width: 968px) {
+  .story-chapter-header-section {
+    top: 85px;
+    padding: 0 16px;
+  }
+
+  .story-chapter-title {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .story-chapter-subtitle {
+    font-size: 18px;
+  }
+
+  .story-chapter-divider {
+    width: 70px;
+  }
+
+  .story-section {
+    padding-top: 110px;
+    scroll-margin-top: 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-chapter-header-section {
+    top: 75px;
+    padding: 0 16px;
+  }
+
+  .story-chapter-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  .story-chapter-subtitle {
+    font-size: 17px;
+  }
+
+  .story-chapter-divider {
+    width: 60px;
+    height: 2px;
+  }
+
+  .story-section {
+    padding-top: 100px;
+    scroll-margin-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-chapter-header-section {
+    top: 65px;
+    padding: 0 12px;
+  }
+
+  .story-chapter-title {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .story-chapter-subtitle {
+    font-size: 16px;
+  }
+
+  .story-chapter-divider {
+    width: 50px;
+  }
+
+  .story-section {
+    padding-top: 90px;
+    scroll-margin-top: 60px;
+  }
+}
+
+@media (max-width: 360px) {
+  .story-chapter-header-section {
+    top: 60px;
+    padding: 0 10px;
+  }
+
+  .story-chapter-title {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .story-chapter-subtitle {
+    font-size: 15px;
+  }
+
+  .story-chapter-divider {
+    width: 45px;
+  }
+
+  .story-section {
+    padding-top: 85px;
+    scroll-margin-top: 55px;
+  }
+}
