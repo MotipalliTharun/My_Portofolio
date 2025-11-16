@@ -182,15 +182,15 @@ const Skills: React.FC = () => {
   };
 
   const itemVariants = {
-    hidden: { scale: 0, opacity: 0, rotate: -180 },
+    hidden: { scale: 0.9, opacity: 0, y: 10 },
     visible: {
       scale: 1,
       opacity: 1,
-      rotate: 0,
+      y: 0,
       transition: {
         type: "spring",
-        stiffness: 200,
-        damping: 15
+        stiffness: 180,
+        damping: 18
       }
     }
   };
@@ -264,10 +264,9 @@ const Skills: React.FC = () => {
               className="skill-card"
               variants={itemVariants}
               whileHover={{ 
-                scale: 1.1, 
-                y: -10,
-                rotate: 5,
-                transition: { type: "spring", stiffness: 400, damping: 17 }
+                scale: 1.03, 
+                y: -4,
+                transition: { type: "spring", stiffness: 250, damping: 20 }
               }}
               onHoverStart={() => setHoveredSkill(skill.name)}
               onHoverEnd={() => setHoveredSkill(null)}
