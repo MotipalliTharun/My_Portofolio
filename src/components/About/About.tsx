@@ -12,6 +12,8 @@ const About: React.FC = () => {
 
   // Initialize 3D geometric shapes for About section
   useEffect(() => {
+    // Skip heavy 3D rendering on small screens for better performance
+    if (window.innerWidth < 768) return;
     if (!canvasRef.current || !isInView) return;
 
     const scene = new THREE.Scene();
@@ -215,20 +217,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="about-section story-section" ref={sectionRef}>
-      {/* Story Mode Chapter Header */}
-      <motion.div
-        className="story-chapter-header-section"
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="story-chapter-title">📖 CHAPTER I</div>
-        <div className="story-chapter-subtitle">The Journey Begins</div>
-        <div className="story-chapter-divider"></div>
-      </motion.div>
-
+    <section id="about" className="about-section" ref={sectionRef}>
       {/* AI 3D Element in background */}
       <AI3DElement className="about-ai-element" />
       

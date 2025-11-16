@@ -51,8 +51,9 @@ const Skills: React.FC = () => {
     ? skills 
     : skills.filter(skill => skill.category === selectedCategory);
 
-  // Initialize 3D rotating skill icons
+  // Initialize 3D rotating skill icons (desktop only for performance)
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     if (!canvasRef.current || !isInView) return;
 
     const scene = new THREE.Scene();
@@ -195,19 +196,7 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="skills-section story-section" ref={sectionRef}>
-      {/* Story Mode Chapter Header */}
-      <motion.div
-        className="story-chapter-header-section"
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="story-chapter-title">⚔️ CHAPTER II</div>
-        <div className="story-chapter-subtitle">Mastering the Craft</div>
-        <div className="story-chapter-divider"></div>
-      </motion.div>
+    <section id="skills" className="skills-section" ref={sectionRef}>
       {/* AI 3D Element */}
       <AI3DElement className="skills-ai-element" />
       

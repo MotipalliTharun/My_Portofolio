@@ -200,6 +200,11 @@
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
 }
 
+/* Story mode link uses same base styles */
+.nav-link-story {
+  background: rgba(59, 130, 246, 0.08);
+}
+
 /* Active link state */
 .nav-link:active,
 .nav-link:focus {
@@ -350,7 +355,7 @@
   }
 
   .nav {
-    padding: 1rem 1.2rem;
+    padding: 0.9rem 1.2rem;
   }
 
   .hamburger {
@@ -376,77 +381,66 @@
     font-size: 1rem;
   }
 
-  .nav-links {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.99), rgba(30, 41, 59, 0.99));
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
-    padding: 80px 1.5rem 2rem;
-    transform: translateX(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1001;
-    border-right: 4px solid #3b82f6;
-    box-shadow: 
-      0 0 80px rgba(59, 130, 246, 0.4),
-      inset 0 0 120px rgba(59, 130, 246, 0.08);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+  /* Dropdown-style menu under the header */
+  .nav {
+    position: relative;
   }
 
-  .nav-links::before {
-    content: '';
+  .nav-links {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(180deg, #3b82f6, #10b981, #3b82f6);
-    box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
-    animation: borderFlow 3s linear infinite;
+    top: 100%;
+    right: 1.2rem;
+    left: 1.2rem;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem 0.75rem 0.9rem;
+    border-radius: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.6),
+      0 0 25px rgba(59, 130, 246, 0.4);
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    z-index: 1001;
   }
 
   .nav-links.open {
-    transform: translateX(0);
+    transform: scaleY(1);
     opacity: 1;
     pointer-events: auto;
   }
 
   .nav-links li {
     width: 100%;
-    max-width: 320px;
     display: flex;
     justify-content: center;
   }
 
   .nav-link {
-    font-size: 17px;
-    padding: 16px 28px;
+    font-size: 16px;
+    padding: 12px 18px;
     width: 100%;
     justify-content: center;
-    background: rgba(59, 130, 246, 0.12);
-    border: 2px solid rgba(59, 130, 246, 0.25);
-    border-radius: 12px;
-    gap: 10px;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 10px;
+    gap: 8px;
     touch-action: manipulation;
   }
 
   .nav-link:hover,
   .nav-link:active,
   .nav-link:focus {
-    width: 100%;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(16, 185, 129, 0.25));
-    border-color: rgba(59, 130, 246, 0.6);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
+    border-color: rgba(59, 130, 246, 0.7);
+    transform: translateY(-1px);
   }
 
   .nav-link-number {
@@ -456,13 +450,12 @@
   }
 
   .resume-button {
-    margin-top: 0.5rem;
-    padding: 16px 32px;
-    font-size: 16px;
+    margin-top: 0.25rem;
+    padding: 12px 18px;
+    font-size: 15px;
     width: 100%;
-    max-width: 320px;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 10px;
     touch-action: manipulation;
   }
 }

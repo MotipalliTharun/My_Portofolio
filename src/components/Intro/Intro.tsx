@@ -29,9 +29,9 @@ const Intro: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
 
-  // Parallax effects
-  const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // Parallax effects (disable large movement on very small screens)
+  const y = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.1]);
 
   // Typing effect
   useEffect(() => {
@@ -65,19 +65,7 @@ const Intro: React.FC = () => {
   }, [charIndex, isDeleting, titleIndex]);
 
   return (
-    <section id="intro" className="intro-container story-section" ref={containerRef}>
-      {/* Story Mode Chapter Header */}
-      <motion.div
-        className="story-chapter-header-section"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="story-chapter-title">🎬 PROLOGUE</div>
-        <div className="story-chapter-subtitle">The Beginning</div>
-        <div className="story-chapter-divider"></div>
-      </motion.div>
-
+    <section id="intro" className="intro-container" ref={containerRef}>
       {/* AI 3D Element that transforms on scroll */}
       <AI3DElement className="intro-ai-element" />
       

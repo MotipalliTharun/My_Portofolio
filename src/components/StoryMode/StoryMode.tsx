@@ -63,11 +63,13 @@ const chapters: Chapter[] = [
 ];
 
 interface StoryModeProps {
+  visible: boolean;
   currentSection: string;
   onChapterSelect: (sectionId: string) => void;
+  onRequestClose?: () => void;
 }
 
-const StoryMode: React.FC<StoryModeProps> = ({ currentSection, onChapterSelect }) => {
+const StoryMode: React.FC<StoryModeProps> = ({ visible, currentSection, onChapterSelect, onRequestClose }) => {
   const [activeChapter, setActiveChapter] = useState(0);
   const [isMinimized, setIsMinimized] = useState(false);
 
@@ -80,10 +82,23 @@ const StoryMode: React.FC<StoryModeProps> = ({ currentSection, onChapterSelect }
 
   const currentChapter = chapters[activeChapter];
 
+  useEffect(() => {
+    if (visible) {
+      setIsMinimized(false);
+    } else {
+      setIsMinimized(true);
+    }
+  }, [visible]);
+
+  const handleClose = () => {
+    setIsMinimized(true);
+    onRequestClose?.();
+  };
+
   return (
     <>
       <AnimatePresence>
-        {!isMinimized && (
+        {visible && !isMinimized && (
           <motion.div
             className="story-mode-container"
             initial={{ x: -320, opacity: 0 }}
@@ -98,7 +113,7 @@ const StoryMode: React.FC<StoryModeProps> = ({ currentSection, onChapterSelect }
               </h3>
               <button
                 className="story-mode-close"
-                onClick={() => setIsMinimized(true)}
+                onClick={handleClose}
                 aria-label="Minimize story mode"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -165,7 +180,7 @@ const StoryMode: React.FC<StoryModeProps> = ({ currentSection, onChapterSelect }
         )}
       </AnimatePresence>
 
-      {isMinimized && (
+      {visible && isMinimized && (
         <motion.button
           className="story-mode-toggle"
           onClick={() => setIsMinimized(false)}

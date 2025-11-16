@@ -14,6 +14,7 @@ import StoryMode from './components/StoryMode/StoryMode.tsx';
 
 const App: React.FC = () => {
   const [currentSection, setCurrentSection] = useState('intro');
+  const [isStoryModeOpen, setIsStoryModeOpen] = useState(false);
 
   // Track current section based on scroll position
   useEffect(() => {
@@ -48,8 +49,13 @@ const App: React.FC = () => {
 
   return (
     <div className="App story-mode-app">
-      <StoryMode currentSection={currentSection} onChapterSelect={handleChapterSelect} />
-      <Header />
+      <StoryMode
+        visible={isStoryModeOpen}
+        currentSection={currentSection}
+        onChapterSelect={handleChapterSelect}
+        onRequestClose={() => setIsStoryModeOpen(false)}
+      />
+      <Header onOpenStoryMode={() => setIsStoryModeOpen(true)} />
       <Intro />
       <About />
       <Skills />

@@ -1,21 +1,19 @@
 /* ========== Global Story Mode Styling ========== */
-.story-section {
-  position: relative;
-  padding-top: 100px;
-  scroll-margin-top: 80px;
-}
-
-/* Story Chapter Header Section */
-.story-chapter-header-section {
-  position: absolute;
-  top: 80px;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  text-align: center;
-  padding: 0 20px;
-  pointer-events: none;
-}
+ .story-section {
+   position: relative;
+   padding-top: 100px;
+   scroll-margin-top: 80px;
+ }
+ 
+ /* Story Chapter Header Section */
+ .story-chapter-header-section {
+   position: relative;
+   z-index: 1;
+   text-align: center;
+   padding: 0 20px;
+   margin-bottom: 24px;
+   pointer-events: none;
+ }
 
 .story-chapter-title {
   font-size: 16px;
@@ -56,7 +54,6 @@
 /* Responsive story headers */
 @media (max-width: 968px) {
   .story-chapter-header-section {
-    top: 85px;
     padding: 0 16px;
   }
 
@@ -72,22 +69,22 @@
   .story-chapter-divider {
     width: 70px;
   }
-
-  .story-section {
-    padding-top: 110px;
-    scroll-margin-top: 75px;
-  }
 }
 
 @media (max-width: 768px) {
+  .story-section {
+    padding-top: 70px;
+    scroll-margin-top: 70px;
+  }
+
   .story-chapter-header-section {
-    top: 75px;
     padding: 0 16px;
+    margin-bottom: 20px;
   }
 
   .story-chapter-title {
     font-size: 13px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
   }
 
   .story-chapter-subtitle {
@@ -98,41 +95,40 @@
     width: 60px;
     height: 2px;
   }
-
-  .story-section {
-    padding-top: 100px;
-    scroll-margin-top: 70px;
-  }
 }
 
 @media (max-width: 480px) {
+  .story-section {
+    padding-top: 60px;
+    scroll-margin-top: 60px;
+  }
+
   .story-chapter-header-section {
-    top: 65px;
     padding: 0 12px;
+    margin-bottom: 16px;
   }
 
   .story-chapter-title {
     font-size: 11px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.3px;
   }
 
   .story-chapter-subtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .story-chapter-divider {
     width: 50px;
   }
-
-  .story-section {
-    padding-top: 90px;
-    scroll-margin-top: 60px;
-  }
 }
 
 @media (max-width: 360px) {
+  .story-section {
+    padding-top: 55px;
+    scroll-margin-top: 55px;
+  }
+
   .story-chapter-header-section {
-    top: 60px;
     padding: 0 10px;
   }
 
@@ -142,15 +138,10 @@
   }
 
   .story-chapter-subtitle {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .story-chapter-divider {
     width: 45px;
-  }
-
-  .story-section {
-    padding-top: 85px;
-    scroll-margin-top: 55px;
   }
 }

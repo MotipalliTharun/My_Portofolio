@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './Header.css';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onOpenStoryMode?: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onOpenStoryMode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -81,6 +85,25 @@ const Header: React.FC = () => {
               </a>
             </motion.li>
           ))}
+          {onOpenStoryMode && (
+            <motion.li
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.1 + 0.1, duration: 0.5 }}
+            >
+              <button
+                type="button"
+                className="nav-link nav-link-story"
+                onClick={() => {
+                  onOpenStoryMode();
+                  setIsMenuOpen(false);
+                }}
+              >
+                <span className="nav-link-number">SM</span>
+                Story Mode
+              </button>
+            </motion.li>
+          )}
           <motion.li
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}

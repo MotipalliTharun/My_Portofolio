@@ -21,7 +21,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi! I'm your portfolio assistant. I can help you navigate the site, answer questions about Tharun's projects and skills, or connect you. Tharun is a Computer Science graduate student and developer. How can I help you today?",
+      text: "Hi! I'm Agent JOJO, your portfolio assistant. I can help you navigate the site, answer questions about Tharun's projects and skills, or connect you. Tharun is a Computer Science graduate student and developer. How can I help you today?",
       sender: 'bot',
       timestamp: new Date(),
     },
@@ -348,8 +348,8 @@ const Chatbot: React.FC = () => {
                   </svg>
                 </div>
                 <div className="chatbot-header-text">
-                  <h3>Portfolio Assistant</h3>
-                  <p>Always here to help</p>
+                  <h3>Agent JOJO</h3>
+                  <p>Your portfolio assistant</p>
                 </div>
               </div>
               <button className="chatbot-minimize" onClick={() => setIsOpen(false)} aria-label="Minimize chatbot">
