@@ -2,32 +2,58 @@
 # 🌟 Tharun Motipalli – Developer Portfolio
 
 Welcome to my **personal portfolio repository**!
-This project showcases my **skills**, **projects**, and **experience** as a **Java Full Stack Developer** with expertise in **Cloud & DevOps**. It serves as a central hub for recruiters, collaborators, and fellow developers to explore my work.
+This project showcases my journey as a **Computer Science graduate student & Java Full Stack Developer** with expertise in **Cloud & DevOps** and modern **UI/UX**. It serves as a central hub for recruiters, collaborators, and fellow developers to explore my work.
 
-🔗 **Live Portfolio:** [View Here](https://my-portofolio-gamma-one.vercel.app/)
+🔗 **Live Portfolio:** [`https://my-portofolio-gamma-one.vercel.app/`](https://my-portofolio-gamma-one.vercel.app/)
 
 ---
 
 ## 📌 Table of Contents
 
-* [About Me](#about-me)
-* [Skills](#skills)
-* [Highlighted Projects](#highlighted-projects)
-* [Contact](#contact)
+* [Features](#-features)
+* [About Me](#-about-me)
+* [Tech Stack](#-tech-stack)
+* [Highlighted Projects](#-highlighted-projects)
+* [Contact](#-contact)
+
+---
+
+## 🧩 Features
+
+- 🎮 **Story Mode Navigation (Optional)**
+  - Story Mode is available as a separate option in the navbar and is **hidden by default**.
+  - When opened, it presents the portfolio as chapters (Intro, About, Skills, Projects, Blog, Contact, Footer) in a lightweight side/top panel.
+
+- 🤖 **Agent JOJO – Portfolio Chatbot**
+  - An on-site assistant that can navigate to sections, summarize projects/skills, and guide users through the site.
+  - Always visible and mobile‑friendly with careful z‑index so it never hides important content.
+
+- 🛰️ **3D & Motion Effects (Performance-Aware)**
+  - Three.js visuals in Intro, About, and Skills for a modern, AI‑themed experience.
+  - 3D scenes are **disabled on small screens** to keep the site lightweight and responsive.
+  - Framer Motion is used for subtle scroll and hover animations, tuned to avoid heavy, distracting motion.
+
+- 📚 **Integrated Blog & Article Viewer**
+  - Blog posts are rendered in‑site using markdown (no external tab required).
+  - Article viewer has responsive typography and code‑block styling for technical content.
+
+- 📱 **Mobile-First Responsive Design**
+  - Custom mobile navbar with a dropdown menu under the header (no full‑screen overlay).
+  - Projects section uses a single‑column layout and full‑screen project viewer on mobile.
 
 ---
 
 ## 👨‍💻 About Me
 
-I am an **innovative and results-driven Java Full Stack Developer** with experience designing and deploying **secure, scalable applications**. My work spans **enterprise fintech platforms, cloud-native architectures, and real-time data solutions**.
+I am a **Computer Science graduate student and Java Full Stack Developer** with experience designing and deploying **secure, scalable applications**. My work spans **enterprise fintech platforms, cloud-native architectures, and real-time data solutions**.
 
-* 🚀 **Current Focus:** Cloud computing, microservices, and high-performance API design
-* 🌍 **Passionate About:** Building impactful solutions, mentoring developers, and exploring emerging tech like **AR** and **data streaming**
-* ⚡ **Strengths:** Agile development, end-to-end system design, DevOps pipelines
+* 🎓 **Current Focus:** Cloud computing, microservices, and high‑performance API design during my Master's in Computer Science  
+* 🌍 **Passionate About:** Building impactful solutions, mentoring developers, and exploring emerging tech like **AR**, **data streaming**, and **developer tooling**  
+* ⚡ **Strengths:** Clean architecture, performance optimization, DevOps pipelines, and developer experience
 
 ---
 
-## 🛠 Skills
+## 🛠 Tech Stack
 
 ### **Languages**
 
